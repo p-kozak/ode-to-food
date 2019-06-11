@@ -1,0 +1,33 @@
+﻿@page
+@model OdeToFood.Pages.Restaurants.ListModel
+@{
+    ViewData["Title"] = "List";
+}
+
+<form  method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="SearchTerm" /> <!--asp-for binds this input to the SearchTerm property
+                                                                                  in the model-->
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i> 
+                </button>
+            </span>
+
+        </div>
+    </div>
+</form>
+@foreach(var restaurant in Model.Restaurants)
+{
+    <partial name="_Summary" model="restaurant" /> <!--Example of using a shared view. This will
+                                                       display a view _Summary and pass a current restauratn
+                                                       as a model-->
+}
+<a asp-page="./Edit" class="btn btn-primary">Add new</a>
+
+
+@section footer{
+    <div>@Model.Message</div>
+
+}
