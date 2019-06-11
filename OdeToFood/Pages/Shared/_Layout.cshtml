@@ -45,6 +45,8 @@
         @RenderBody()
         <hr />
         <footer>
+            <vc:restaurant-count></vc:restaurant-count> <!--This will fine RestaurantCount view component,
+                                                            render its html and place it here in the layout-->
             @RenderSection("footer", required: false) <!--This will allow razor pages to put somethin in the footer-->
             <p>&copy; 2019 - OdeToFood</p>
         </footer>
